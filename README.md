@@ -44,17 +44,16 @@ After you obtain a key from VecML and set it to the environment variable VECML_A
 you should be able to do this:
 
 ```sh
-echo 'Please summarize the paper on psycholinguistics.' > /tmp/x
-echo 'Please summarize the paper on clustering.' >> /tmp/x
-echo 'What are the similarities between the two papers?' >> /tmp/x
-echo 'What are the differences?' >> /tmp/x
-src/compare_and_contrast.py sample_files/*pdf < /tmp/x
+echo 'Please summarize the paper on psycholinguistics.' >/tmp/x
+echo 'Please summarize the paper on clustering.' >>/tmp/x
+echo 'What are the similarities between the two papers?' >>/tmp/x
+echo 'What are the differences?' >>/tmp/x
+src/compare_and_contrast.py sample_files/*pdf </tmp/x
 ```
 
-The code above produces the following output:
+<p>The code above produces the following output:</p>
 						
-						<ol>
-						  
+<ol>
 <li>The paper on psycholinguistics discusses the importance of word association norms in psycholinguistic research, particularly in the area of lexical retrieval. It mentions that subjects respond quicker to words that are highly associated with each other. While noun-noun word associations like "doctor/nurse" are extensively studied, less attention is given to associations among verbs, function words, adjectives, and other non-nouns. The paper concludes by linking the psycholinguistic notion of word association norms to the information-theoretic concept of mutual information, providing a more precise understanding of word associations.</li>
 <li>The paper discusses a triangulation approach for clustering concordance lines into word senses based on usage rather than intuitive meanings. It highlights the superficiality of defining a word measure for clustering words without explicit preprocessing tools such as Church's parts program or Hindle's parser. The paper briefly mentions future work on clustering similar words and reviews related work while summarizing its contributions.</li>
 <li>The similarities between the two papers include a focus on analyzing language data, using distributional patterns of words, evaluating similarity measures for creating a thesaurus, and discussing the importance of smoothing methods in language processing tasks.</li>
@@ -91,8 +90,7 @@ Then you should be able run these examples on the local host.
 <ol>
   <li>Test server.  You should see "hello world" if the server is running when you click <a href="http://0.0.0.0:8000/cgi-bin/hello.py">here</a>.</li>
   <li>Click <a href="http://0.0.0.0:8000/cgi-bin/compare_and_contrast?ids=ACL:P89-1010,ACL:P98-2127">here</a> and wait about 10 seconds.  Then you will see a json object that compares and contrasts two ACL papers.
-    <p>
-The URL above takes two or more ids as input.  These ids should refer to papers in Semantic Scholar such as:
+    <p>The URL above takes two or more ids as input.  These ids should refer to papers in Semantic Scholar such as:</p>
 
 <ol>
   <li>sha (40 byte hex); <a href="http://34.204.188.58//cgi-bin/lookup_paper?id=ea7886975510353c194303931b333af983a63ed7&fields=title,authors,citationCount,externalIds">example</a></li>
