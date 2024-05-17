@@ -10,20 +10,64 @@ pip install -r requirements.txt
 
 <h2>Obtaining Secrets</h2>
 
-It is not necessary to have a key from semantic scholar, but it is recommended.  You can obtain a key from <a href="https://www.semanticscholar.org/product/api#api-key">here</a>.
-<p>
-  However, VecML keys are required.  You can obtain a key from <a href="www.vecml.com">here</a>.  Click on login -> API Key.
-</p>
+Some of the features below require secrets from different organizations
 
-<p>Create a file in $HOME/.secrets.json containing this:</p>
+<table>
+  <tr><th>Company</th><th>Environment Variable</th><th>Free?</th></th>Instructions for Obtaining Key</th></tr>
+  <tr>
+    <td>OpenAI</td>
+    <td>OPENAI_API_KEY</td>
+    <td>paid</td>
+    <td><a href="https://platform.openai.com/api-keys">here</a></td>
+  </tr>
 
+  <tr>
+    <td>Semantic Scholar</td>
+    <td>S2_API_KEY</td>
+    <td>free</td>
+    <td><a href="https://www.semanticscholar.org/product/api#api-key">here</a></td>
+  </tr>
+
+  <tr>
+    <td>VecML</td>
+    <td>VECML_API_KEY</td>
+    <td>free</td>
+    <td><a href="www.vecml.com">here</a>; click on login, and then click on API Key.
+  </tr>
+</table>
+
+<h2>Simple Usage</h2>
+
+It is suggested that you obtain (at least) the free keys, and set the environment variables appropriately.
+
+After you obtain a key from VecML and set it to the environment variable VECML_API_KEY,
+you should be able to do this:
 
 ```sh
-{"s2_apikeys" : [ ** insert zero or more semantic scholar api keys here ** ], 
-"vecml_apikeys" : [ ** insert one or more vecml api keys here ** ] }
+echo 'Please summarize the paper on psycholinguistics.' > /tmp/x
+echo 'Please summarize the paper on clustering.' >> /tmp/x
+echo 'What are the similarities between the two papers?' >> /tmp/x
+echo 'What are the differences?' >> /tmp/x
+src/compare_and_contrast.py sample_files/*pdf < /tmp/x
 ```
 
-To start the web server
+After you obtain a key from OpenAI and set it to the environment variable OPENAI_API_KEY,
+you can run this in a shell window.  It will return an error if the key is not valid.
+
+```sh
+ curl https://api.openai.com/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $OPENAI_API_KEY" \
+  -d '{
+     "model": "gpt-3.5-turbo",
+     "messages": [{"role": "user", "content": "Say this is a test!"}],
+     "temperature": 0.7
+}'
+```
+
+<h2>Creating Your Own API</h2>
+
+To start your a web server on your local machine, run this on a shell window.
 
 ```sh
 cd ** directory containing this README.md file **

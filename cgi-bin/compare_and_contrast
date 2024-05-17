@@ -9,17 +9,22 @@ import cgi, cgitb
 
 # secrets that we do not want to share
 fn = os.environ["HOME"] + '/.secrets.json'
-assert os.path.exists(fn), fn + ' does not exist; the file should contain a json object with keys for s2_apikeys and vecml_keys; see README for https://github.com/kwchurch/RAG'
-with open(fn, 'r') as fd:
-    secrets = ast.literal_eval(fd.read().rstrip())
+assert not os.environ['VECML_API_KEY'] is None or os.path.exists(fn), 'VECML_API_KEY is required; see README for https://github.com/kwchurch/RAG'
+
+secrets = {}
+if os.path.exists(fn):
+    with open(fn, 'r') as fd:
+        secrets = ast.literal_eval(fd.read().rstrip())
 
 def s2_apikey():
-    if 's2_apikeys' in secrets: 
-        return secrets['s2_apikeys'][0]
+    if 'S2_API_KEYS' in secrets: 
+        return secrets['S2_API_KEYS'][0]
+    return os.environ['S2_API_KEY']
 
 def vecml_apikey():
-    return secrets['vecml_apikeys'][0]
-
+    if 'VECML_API_KEYS' in secrets:
+        return secrets['VECML_API_KEYS'][0]
+    return os.environ['VECML_API_KEY']
 
 def my_get(rec, keys):
     if rec is None: return None
