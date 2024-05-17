@@ -13,25 +13,25 @@ pip install -r requirements.txt
 Some of the features below require secrets from different organizations
 
 <table>
-  <tr><th>Company</th><th>Environment Variable</th><th>Free?</th></th>Instructions for Obtaining Key</th></tr>
+  <tr><th align="left">Company</th><th align="left">Environment Variable</th><th align="left">Free?</th><th align="left">Instructions for Obtaining Key</th></tr>
   <tr>
     <td>OpenAI</td>
     <td>OPENAI_API_KEY</td>
-    <td>&#x2717;</td>
+    <td align="center">&#x2717;</td>
     <td><a href="https://platform.openai.com/api-keys">here</a></td>
   </tr>
 
   <tr>
     <td>Semantic Scholar</td>
     <td>S2_API_KEY</td>
-    <td>&check;</td>
+    <td align="center">&check;</td>
     <td><a href="https://www.semanticscholar.org/product/api#api-key">here</a></td>
   </tr>
 
   <tr>
     <td>VecML</td>
     <td>VECML_API_KEY</td>
-    <td>&check;</td>
+    <td align="center">&check;</td>
     <td><a href="www.vecml.com">here</a>; click on login, and then click on API Key.
   </tr>
 </table>
