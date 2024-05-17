@@ -67,7 +67,7 @@ echo 'Please summarize the paper on psycholinguistics.' >/tmp/x
 echo 'Please summarize the paper on clustering.' >>/tmp/x
 echo 'What are the similarities between the two papers?' >>/tmp/x
 echo 'What are the differences?' >>/tmp/x
-src/compare_and_contrast.py sample_files/*pdf </tmp/x
+src/RAG.py sample_files/*pdf </tmp/x
 ```
 
 <p>The code above produces the following outputs (one output for each of the four input prompts):</p>
@@ -105,13 +105,13 @@ The RAG outputs in the table were created with:
 
 ```sh
 echo 'Please summarize the paper on word associations.' | 
-src/compare_and_contrast.py sample_files/J90-1003.pdf
+src/RAG.py sample_files/J90-1003.pdf
 
 echo 'Please summarize the paper on clustering.' |
-src/compare_and_contrast.py sample_files/C98-2122.pdf
+src/RAG.py sample_files/C98-2122.pdf
 
 echo 'Please summarize the paper on RAG.' | 
-src/compare_and_contrast.py papers/NeurIPS-2020-retrieval*.pdf
+src/RAG.py papers/NeurIPS-2020-retrieval*.pdf
 ```
 
 In general, abstractive summarization is more ambitious than extractive summarization.
