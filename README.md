@@ -204,7 +204,6 @@ and somewhat dated.</li>
 <li>
 Unlike sim, simninale and simHinater, they only 
 770 
-
 210g P(c) ,~ simwN(wl, w2) = maxc~ eS(w~)Ac2eS(w2) (maxcesuper(c~)nsuper(c2) log P(cl )+log P(c2) ! 
 21R(~l)nR(w2)l simRoget(Wl, W2) = IR(wx)l+lR(w2)l 
 where S(w) is the set of senses of w in the WordNet, super(c) is the set of (possibly indirect) 
@@ -240,8 +239,8 @@ Then you should be able run these examples on the local host.
 <h2>Examples</h2>
 
 <ol>
-  <li>Test server.  You should see "hello world" if the server is running when you click <a href="http://0.0.0.0:8000/cgi-bin/hello.py">here</a>.</li>
-  <li>Click <a href="http://0.0.0.0:8000/cgi-bin/compare_and_contrast?ids=ACL:J90-1003,ACL:C98-2122">here</a> and wait about 10 seconds.  Then you will see a json object that compares and contrasts two ACL papers.
+  <li><b>Test server</b>:  You should see "hello world" if the server is running when you click <a href="http://0.0.0.0:8000/cgi-bin/hello.py">here</a>.</li>
+  <li><b>RAG</b> (on files): Click <a href="http://0.0.0.0:8000/cgi-bin/compare_and_contrast?ids=ACL:J90-1003,ACL:C98-2122">here</a> and wait about 10 seconds.  Then you will see a json object that compares and contrasts two ACL papers.
     <p>The URL above takes two or more ids as input.  These ids should refer to papers in Semantic Scholar such as:</p>
 
 <ol>
@@ -260,5 +259,5 @@ you can get ids from a query string with paper_search
 
 </p>
 </li>
-  <li>Like above, but takes texts as files (as opposed to files): Click <a href="http://0.0.0.0:8000/cgi-bin/compare_and_contrast_texts?text1=I love you.&text2=I hate you.">example</a> and wait about 10 seconds</li>
+  <li><b>RAG</b> (on texts): Like above, but takes texts as inputs (as opposed to files): Click <a href="http://0.0.0.0:8000/cgi-bin/compare_and_contrast_texts?text1=I love you.&text2=I hate you.">example</a> and wait about 10 seconds</li>
 </ol>
