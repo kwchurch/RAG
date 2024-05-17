@@ -2,4 +2,6 @@ wget
 requests
 numpy
 vecml
-mycgi
+spacy
+pypdf
+pytextrank

@@ -36,9 +36,27 @@ Some of the features below require secrets from different organizations
   </tr>
 </table>
 
+It is suggested that you obtain (at least) the free keys, and set the environment variables appropriately.
+
 <h2>Simple Usage</h2>
 
-It is suggested that you obtain (at least) the free keys, and set the environment variables appropriately.
+<h3>OpenAI</h3>
+
+After you obtain a key from OpenAI and set it to the environment variable OPENAI_API_KEY,
+you can run this in a shell window.  It will return an error if the key is not valid.
+
+```sh
+ curl https://api.openai.com/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $OPENAI_API_KEY" \
+  -d '{
+     "model": "gpt-3.5-turbo",
+     "messages": [{"role": "user", "content": "Say this is a test!"}],
+     "temperature": 0.7
+}'
+```
+
+<h3>VecML</h3>
 
 After you obtain a key from VecML and set it to the environment variable VECML_API_KEY,
 you should be able to do this:
@@ -59,20 +77,41 @@ src/compare_and_contrast.py sample_files/*pdf </tmp/x
 <li>The similarities between the two papers include a focus on analyzing language data, using distributional patterns of words, evaluating similarity measures for creating a thesaurus, and discussing the importance of smoothing methods in language processing tasks.</li>
 <li>The differences between the two thesaurus entries can be measured based on the cosine coefficient of their feature vectors. In this case, the differences are represented in the relationships between the words listed in each entry. For example, in the given entries, "brief (noun)" is associated with words like "differ," "scream," "compete," and "add," while "inform" and "notify" are related to each other in the second entry. These associations indicate the semantic relationships and differences between the words in each entry.</li>
 </ol>
-						
-After you obtain a key from OpenAI and set it to the environment variable OPENAI_API_KEY,
-you can run this in a shell window.  It will return an error if the key is not valid.
+
+
+RAG is not magic.  The output above conflates the two papers in places.  It is also not clear that it understands the difference between similarities and differences.
+
+Results are likely to improve if we simplify the task as much as possible.  For example, it is better
+to summarize each paper one at a time like this:
 
 ```sh
- curl https://api.openai.com/v1/chat/completions \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $OPENAI_API_KEY" \
-  -d '{
-     "model": "gpt-3.5-turbo",
-     "messages": [{"role": "user", "content": "Say this is a test!"}],
-     "temperature": 0.7
-}'
+echo 'Please summarize the paper on clustering.' |
+src/compare_and_contrast.py sample_files/C98-2122.pdf
 ```
+
+Now the summary is closer to what was in the paper:
+
+<ol>
+<li>
+  The paper discusses clustering similar words and evaluates clusters based on their ability to recover data items that are removed from the input corpus. It also indirectly evaluates collocations and their associated scores by their use in parse tree distributional clustering of English words. The paper was presented at ACL93 and authored by Gerda Ruge in 1992. The future work in clustering similar words is briefly mentioned in Section 4, while related work and the contributions of the paper are summarized in Section 5.
+</li>
+</ol>
+
+Unfortunately, the the summary ends with some inconsistent misinformation: author, venue, date.  The last sentence of the summary does not contribute much information, and perhaps some misinformation.  Section 5 would be better characterized as conclusions than contributions.
+
+
+In general, abstractive summarization is more ambitious than extractive summarization.
+The tldr (too long; did not read) summary from Semantic Scholar is:
+
+<ol>
+<li>
+A word similarity measure based on the distributional pattern of words allows a thesaurus to be constructed using a parsed corpus and shows that the thesaurus is significantly closer to WordNet than Roget Thesaurus is
+</li>
+</ol>
+
+The summary above can be retrieved with <a href="http://34.204.188.58//cgi-bin/lookup_paper?id=ACL:C98-2122&fields=title,tldr">this</a>.
+The Semantic Scholar description of this paper can be found <a href="https://www.semanticscholar.org/paper/Automatic-Retrieval-and-Clustering-of-Similar-Words-Lin/11157109b8f3a098c5c3f801ba9acbffd2aa49b1">here</a>,
+and the ACL Anthology description of this paper can be found <a href="https://aclanthology.org/P98-2127/">here</a>.
 
 <h2>Creating Your Own API</h2>
 

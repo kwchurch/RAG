@@ -3,6 +3,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+download en_core_web_lg
+
 # C extensions
 *.so
 
