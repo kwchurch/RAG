@@ -192,8 +192,7 @@ The command above produces the following output.  Note that OCR and equations cr
 word association norms directly from computer 
 readable corpora, waki,~g it possible to estimate 
 norms for tens of thousands of words. 
-
-	[Meyer, Schvaneveldt 
+[Meyer, Schvaneveldt 
 and Ruddy (1975), p. 98] 
 
 Much of this psycholinguistic research is based on 
@@ -213,10 +212,8 @@ superclasses of concept c in the WordNet, R(w) is the set of words that belong t
 category as w. 
 Figure 2: Word similarity measures based on WordNet and Roget 
 make use of the unique dependency triples and ig- 
-
-	Contextual word similarity and estimation from sparse 
+Contextual word similarity and estimation from sparse 
 data.</li>
-
 <li>
 We introduce
 RAG models where the parametric memory is a pre-trained seq2seq model and
