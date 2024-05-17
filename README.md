@@ -133,10 +133,10 @@ to summarize the conclusions than to say that the paper ends with conclusions.
 
 
 <table>
-  <tr><th>Id</td> <th align="center">OCR</th><th> tldr </th> <th> RAG Summary</th></tr>
+  <tr><th>Id: Title</td> <th align="center">OCR</th><th> tldr </th> <th> RAG Summary</th></tr>
   
 
-<tr><td></td>
+<tr><td><a href="https://www.semanticscholar.org/paper/b4130e315df099e981342542536edfe36f77a20f">ACL:J90-1003</a>: Word Association Norms, Mutual Information, and Lexicography</td>
 <td align="center"> &check; </td>
 
 <td> The proposed measure, the association ratio, estimates word association norms directly from computer readable corpora, making it possible to estimate norms for tens of thousands of words.</td>
@@ -144,15 +144,15 @@ to summarize the conclusions than to say that the paper ends with conclusions.
 <td> The paper discusses the importance of word association norms in psycholinguistic research, particularly in lexical retrieval. It introduces the concept of the association ratio as a measure to estimate word association norms directly from computer-readable corpora. The paper extends the psycholinguistic notion of word association norms towards an information theoretic definition of mutual information, providing statistical calculation that can be applied effectively. The standard method of obtaining word association norms through testing subjects is deemed costly and unreliable compared to the proposed measure utilizing computer data.</td>
 </tr>
 
-<tr><td><a href="https://www.semanticscholar.org/paper/11157109b8f3a098c5c3f801ba9acbffd2aa49b1">ACL:C98-2122</a></td>
+<tr><td><a href="https://www.semanticscholar.org/paper/11157109b8f3a098c5c3f801ba9acbffd2aa49b1">ACL:C98-2122</a>: Automatic Retrieval and Clustering of Similar Words</td>
 <td align="center"> &check; </td> 
 
 <td>A word similarity measure based on the distributional pattern of words allows a thesaurus to be constructed using a parsed corpus and shows that the thesaurus is significantly closer to WordNet than Roget Thesaurus is.</td>
 
-<td>The paper discusses clustering similar words and evaluates clusters based on their ability to recover data items that are removed from the input corpus. It also indirectly evaluates collocations and their associated scores by their use in parse tree distributional clustering of English words. The paper was presented at <i><b>ACL93</b></i> and authored by <i><b>Gerda Ruge</b></i> in <i></b>1992</b></i>. The future work in clustering similar words is briefly mentioned in Section 4, while related work and the contributions of the paper are summarized in Section 5.</td>
+<td>The paper discusses clustering similar words and evaluates clusters based on their ability to recover data items that are removed from the input corpus. It also indirectly evaluates collocations and their associated scores by their use in parse tree distributional clustering of English words. The paper was presented at <i><b>ACL93</b></i> and authored by <i><b>Gerda Ruge</b></i> in <i><b>1992</b></i>. The future work in clustering similar words is briefly mentioned in Section 4, while related work and the contributions of the paper are summarized in Section 5.</td>
 </tr>
 
-<tr><td> <a href="https://www.semanticscholar.org/paper/58ed1fbaabe027345f7bb3a6312d41c5aac63e22">ArXiv:2005.11401</a></td>
+<tr><td> <a href="https://www.semanticscholar.org/paper/58ed1fbaabe027345f7bb3a6312d41c5aac63e22">ArXiv:2005.11401</a>: Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</td>
  <td align="center"> &#x2717; </td> 
 
 <td>A general-purpose fine-tuning recipe for retrieval-augmented
