@@ -116,7 +116,7 @@ src/RAG.py papers/NeurIPS-2020-retrieval*.pdf
 
 In general, abstractive summarization is more ambitious than extractive summarization.
 The table below compares the RAG summaries with tldr summaries from Semantic Scholar.
-If one clinks on links in the first column, then
+If one clicks on links in the first column, then
 one can see the paper in Semantic Scholar with tldr summaries.
 
 Note that those summaries are shorter than the RAG summaries,
@@ -149,7 +149,7 @@ to summarize the conclusions than to say that the paper ends with conclusions.
 
 <td>A word similarity measure based on the distributional pattern of words allows a thesaurus to be constructed using a parsed corpus and shows that the thesaurus is significantly closer to WordNet than Roget Thesaurus is.</td>
 
-<td>The paper discusses clustering similar words and evaluates clusters based on their ability to recover data items that are removed from the input corpus. It also indirectly evaluates collocations and their associated scores by their use in parse tree distributional clustering of English words. The paper was presented at <b>ACL93</b> and authored by <b>Gerda Ruge</b> in </b>1992</b>. The future work in clustering similar words is briefly mentioned in Section 4, while related work and the contributions of the paper are summarized in Section 5.</td>
+<td>The paper discusses clustering similar words and evaluates clusters based on their ability to recover data items that are removed from the input corpus. It also indirectly evaluates collocations and their associated scores by their use in parse tree distributional clustering of English words. The paper was presented at <span style=background-color:yellow><b>ACL93</b></span> and authored by <b>Gerda Ruge</b> in </b>1992</b>. The future work in clustering similar words is briefly mentioned in Section 4, while related work and the contributions of the paper are summarized in Section 5.</td>
 </tr>
 
 <tr><td> <a href="https://www.semanticscholar.org/paper/58ed1fbaabe027345f7bb3a6312d41c5aac63e22">ArXiv:2005.11401</a></td>
