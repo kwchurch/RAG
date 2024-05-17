@@ -1,5 +1,4 @@
-# RAG
-A Gentle Introduction to RAG
+# A Gentle Introduction to RAG
 
 <h2>Installation</h2>
 
@@ -71,7 +70,7 @@ echo 'What are the differences?' >>/tmp/x
 src/compare_and_contrast.py sample_files/*pdf </tmp/x
 ```
 
-<p>The code above produces the following output:</p>
+<p>The code above produces the following outputs (one output for each of the four input prompts):</p>
 						
 <ol>
 <li>The paper on psycholinguistics discusses the importance of word association norms in psycholinguistic research, particularly in the area of lexical retrieval. It mentions that subjects respond quicker to words that are highly associated with each other. While noun-noun word associations like "doctor/nurse" are extensively studied, less attention is given to associations among verbs, function words, adjectives, and other non-nouns. The paper concludes by linking the psycholinguistic notion of word association norms to the information-theoretic concept of mutual information, providing a more precise understanding of word associations.</li>
@@ -90,7 +89,7 @@ and unnecessarily complicated inputs.
 There are a couple of opportunities to improve the example above:
 <ol>
   <li>OCR errors: garbage in &rarr; garbage out</li>
-<li>KISS: keep it simple, stupid:
+<li>KISS (keep it simple, stupid):
   <ol>
     <li>It is safer to process fewer files at a time, and</li>
     <li>to decompose prompts into smaller subtasks (Chain of Thought Reasoning)</li>
@@ -99,7 +98,7 @@ There are a couple of opportunities to improve the example above:
 </ol>
 
 As we will see, older pdf files on the ACL Anthology introduce a number
-of OCR errors.  The following summarizes a newer pape without OCR issues:
+of OCR errors.  The following summarizes a more recent paper (without OCR issues):
 
 ```sh
 echo 'Please summarize the paper on RAG.' | 
@@ -108,9 +107,11 @@ src/compare_and_contrast.py papers/NeurIPS-2020-retrieval*.pdf
 
 <ol>
   <li>
-The paper on RAG discusses the use of Retrieval-Augmented Generation (RAG) for question answering (QA). RAG directly minimizes the negative log-likelihood of answers and is compared to traditional extractive QA methods and Closed-Book QA approaches. RAG's retriever is initialized using DPR's retriever, and it achieves results comparable to the DPR QA system. RAG is able to generate answers without the need for specialized pre-training like "salient span masking." Additionally, RAG demonstrates high accuracy in classifying claims as true or false based on evidence it retrieves, achieving results within 2.7% of a model that uses gold evidence sentences. In analyzing RAG's performance, the overlap in article titles between the documents retrieved by RAG and the gold evidence in FEVER dataset is calculated.
+
   </li>
 </ol>
+
+
 
 Results are likely to improve if we simplify the task as much as possible.  For example, it is better
 to summarize each paper one at a time like this:
@@ -143,11 +144,43 @@ misinformation.</li>
 In general, abstractive summarization is more ambitious than extractive summarization.
 The tldr (too long; did not read) summary from Semantic Scholar is:
 
-<ol>
-<li>
-A word similarity measure based on the distributional pattern of words allows a thesaurus to be constructed using a parsed corpus and shows that the thesaurus is significantly closer to WordNet than Roget Thesaurus is
-</li>
-</ol>
+<table>
+  <tr><th>Id</td> <th>OCR Challenges</th><th> tldr </th> <th> RAG Summary</th></tr>
+  
+<tr><td> ArXiv:2005.11401 </td> <td> no </td> 
+
+<td>A general-purpose fine-tuning recipe for retrieval-augmented
+generation (RAG) -- models which combine pre-trained parametric and
+non-parametric memory for language generation, and finds that RAG
+models generate more specific, diverse and factual language than a
+state-of-the-art parametric-only seq2seq baseline.</td>
+
+<td>The paper on RAG discusses the use of Retrieval-Augmented
+Generation (RAG) for question answering (QA). RAG directly minimizes
+the negative log-likelihood of answers and is compared to traditional
+extractive QA methods and Closed-Book QA approaches. RAG\'s retriever
+is initialized using DPR\'s retriever, and it achieves results
+comparable to the DPR QA system. RAG is able to generate answers
+without the need for specialized pre-training like \"salient span
+masking.\" Additionally, RAG demonstrates high accuracy in classifying
+claims as true or false based on evidence it retrieves, achieving
+results within 2.7\% of a model that uses gold evidence sentences. In
+analyzing RAG\'s performance, the overlap in article titles between
+the documents retrieved by RAG and the gold evidence in FEVER dataset
+is calculated.</td>
+</tr>
+
+<tr><td>C98-2122.pdf</td>  <td> yes </td> 
+
+<td>A word similarity measure based on the distributional pattern of words allows a thesaurus to be constructed using a parsed corpus and shows that the thesaurus is significantly closer to WordNet than Roget Thesaurus is.</td>
+
+<td>The paper discusses clustering similar words and evaluates clusters based on their ability to recover data items that are removed from the input corpus. It also indirectly evaluates collocations and their associated scores by their use in parse tree distributional clustering of English words. The paper was presented at ACL93 and authored by Gerda Ruge in 1992. The future work in clustering similar words is briefly mentioned in Section 4, while related work and the contributions of the paper are summarized in Section 5.</td>
+</tr>
+<table>
+
+
+
+
 
 The summary above can be retrieved with <a href="http://34.204.188.58//cgi-bin/lookup_paper?id=ACL:C98-2122&fields=title,tldr">this</a>.
 The Semantic Scholar description of this paper can be found <a href="https://www.semanticscholar.org/paper/Automatic-Retrieval-and-Clustering-of-Similar-Words-Lin/11157109b8f3a098c5c3f801ba9acbffd2aa49b1">here</a>,
