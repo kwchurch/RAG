@@ -118,19 +118,17 @@ In general, abstractive summarization is more ambitious than extractive summariz
 The table below compares the RAG summaries with tldr summaries from Semantic Scholar.
 If one clicks on links in the first column, then
 one can see the paper in Semantic Scholar with tldr summaries.
-
-Note that those summaries are shorter than the RAG summaries,
-and less likely to suffer from inconsistencies and misinformation.
-The bold face in the table below calls out some misinformation
+Note that tldr summaries are shorter than RAG summaries,
+and less likely to suffer from inconsistencies/misinformation.
+The <i><b>bold italics</b></i> in the table below calls out misinformation
 introduced by RAG.
 
 In addition to misinformation, the discussion of Section 5 in the table
-below does not contribute much new information.
-Section 5 of the paper in question would be better charcterized as 
+below contributes little new information.
+The section in question would be better charcterized as 
 <i>conclusions</i> than <i>contributions</i>, but it would be even better
-to summarize the conclusions than to say that the paper ends with conclusions.
-
-
+to summarize the content of the conclusions than to state the obvious.  It should come as no
+surprise that the paper ends with conclusions.
 
 <table>
   <tr><th>Id: Title</td> <th align="center">OCR</th><th> tldr </th> <th> RAG Summary</th></tr>
@@ -176,18 +174,59 @@ the documents retrieved by RAG and the gold evidence in FEVER dataset
 is calculated.</td>
 </tr>
 
+</table>
 
-<table>
+<h2>Summarizing with Spacy</h2>
 
+It may be useful to compare the summaries above with spacy:
 
+```sh
+src/summarize_with_spacy.py sample_files/J*pdf sample_files/C*pdf papers/Neur*pdf
+```
 
+The command above produces the following output.  Note that OCR and equations create interesting challenges:
 
+<ol>
+<li>The 
+, proposed measure, the association ratio, estimates 
+word association norms directly from computer 
+readable corpora, waki,~g it possible to estimate 
+norms for tens of thousands of words. 
 
-The summary above can be retrieved with <a href="http://34.204.188.58//cgi-bin/lookup_paper?id=ACL:C98-2122&fields=title,tldr">this</a>.
-The Semantic Scholar description of this paper can be found <a href="https://www.semanticscholar.org/paper/Automatic-Retrieval-and-Clustering-of-Similar-Words-Lin/11157109b8f3a098c5c3f801ba9acbffd2aa49b1">here</a>,
-and the ACL Anthology description of this paper can be found <a href="https://aclanthology.org/P98-2127/">here</a>.
+	[Meyer, Schvaneveldt 
+and Ruddy (1975), p. 98] 
 
-It may be useful to compare RAG summaries with older technologies such as spacy.
+Much of this psycholinguistic research is based on 
+empirical estimates of word association norms such 
+as [Palermo and Jenkins (1964)], perhaps the most 
+influential study of its kind, though extremely small 
+and somewhat dated.</li>
+
+<li>
+Unlike sim, simninale and simHinater, they only 
+770 
+
+210g P(c) ,~ simwN(wl, w2) = maxc~ eS(w~)Ac2eS(w2) (maxcesuper(c~)nsuper(c2) log P(cl )+log P(c2) ! 
+21R(~l)nR(w2)l simRoget(Wl, W2) = IR(wx)l+lR(w2)l 
+where S(w) is the set of senses of w in the WordNet, super(c) is the set of (possibly indirect) 
+superclasses of concept c in the WordNet, R(w) is the set of words that belong to a same Roget 
+category as w. 
+Figure 2: Word similarity measures based on WordNet and Roget 
+make use of the unique dependency triples and ig- 
+
+	Contextual word similarity and estimation from sparse 
+data.</li>
+
+<li>
+We introduce
+RAG models where the parametric memory is a pre-trained seq2seq model and
+the non-parametric memory is a dense vector index of Wikipedia, accessed with
+a pre-trained neural retriever.
+	For language generation tasks,
+we ﬁnd that RAG models generate more speciﬁc, diverse and factual language than
+a state-of-the-art parametric-only seq2seq baseline.
+</li>
+</ol>
 
 
 <h2>Creating Your Own API</h2>
