@@ -36,14 +36,16 @@ Some of the features below require secrets from different organizations
   </tr>
 </table>
 
-It is recommended that you obtain (at least) the free keys, and set the environment variables appropriately.
+It is not necessary to obtain keys, but it is recommended that you
+obtain (at least) the free keys, and set the environment variables
+appropriately.
 
 <h2>Simple Usage</h2>
 
 <h3>OpenAI</h3>
 
-After you obtain a key from OpenAI and set it to the environment variable OPENAI_API_KEY,
-you can run this in a shell window.  It will return an error if the key is not valid.
+If you have an OpenAI key and set it to the environment variable OPENAI_API_KEY,
+then you can run this in a shell window.  It will return an error if the key is not valid.
 
 ```sh
  curl https://api.openai.com/v1/chat/completions \
@@ -58,8 +60,8 @@ you can run this in a shell window.  It will return an error if the key is not v
 
 <h3>VecML</h3>
 
-After you obtain a key from VecML and set it to the environment variable VECML_API_KEY,
-you should be able to do this:
+If you have a key from VecML and set it to the environment variable VECML_API_KEY,
+you can do this:
 
 ```sh
 echo 'Please summarize the paper on psycholinguistics.' >/tmp/x
@@ -80,17 +82,17 @@ src/compare_and_contrast.py sample_files/*pdf </tmp/x
 
 <h4>RAG is not magic</h4>
 
-The output above conflates the two papers in places.  It is also not clear that it understands the difference between similarities and differences.
+The output above conflates the two papers in places.  It is also not clear that it "understands" the difference between similarities and differences.
 
-It is tempting to attribute these issues to a lack of "understanding", but actually, many of the issues involve OCR challenges
+It is tempting to attribute these issues to a lack of "understanding," but actually, many of the issues involve OCR challenges
 and unnecessarily complicated inputs.
 
-There are a couple of issues with the example above:
+There are a couple of opportunities to improve the example above:
 <ol>
-  <li>OCR errors: garbage in &rarr; -> garbage out</li>
+  <li>OCR errors: garbage in &rarr; garbage out</li>
 <li>KISS: keep it simple, stupid:
   <ol>
-    <li>It is safer to process one file at a time, and<li>
+    <li>It is safer to process one file at a time, and</li>
     <li>decompose prompts into a series of simple subtasks</li>
   </ol>
 </li>
