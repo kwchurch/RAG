@@ -36,7 +36,7 @@ Some of the features below require secrets from different organizations
   </tr>
 </table>
 
-It is suggested that you obtain (at least) the free keys, and set the environment variables appropriately.
+It is recommended that you obtain (at least) the free keys, and set the environment variables appropriately.
 
 <h2>Simple Usage</h2>
 
@@ -78,8 +78,37 @@ src/compare_and_contrast.py sample_files/*pdf </tmp/x
 <li>The differences between the two thesaurus entries can be measured based on the cosine coefficient of their feature vectors. In this case, the differences are represented in the relationships between the words listed in each entry. For example, in the given entries, "brief (noun)" is associated with words like "differ," "scream," "compete," and "add," while "inform" and "notify" are related to each other in the second entry. These associations indicate the semantic relationships and differences between the words in each entry.</li>
 </ol>
 
+<h4>RAG is not magic</h4>
 
-RAG is not magic.  The output above conflates the two papers in places.  It is also not clear that it understands the difference between similarities and differences.
+The output above conflates the two papers in places.  It is also not clear that it understands the difference between similarities and differences.
+
+It is tempting to attribute these issues to a lack of "understanding", but actually, many of the issues involve OCR challenges
+and unnecessarily complicated inputs.
+
+There are a couple of issues with the example above:
+<ol>
+  <li>OCR errors: garbage in &rarr; -> garbage out</li>
+<li>KISS: keep it simple, stupid:
+  <ol>
+    <li>It is safer to process one file at a time, and<li>
+    <li>decompose prompts into a series of simple subtasks</li>
+  </ol>
+</li>
+</ol>
+
+As we will see, older pdf files on the ACL Anthology introduce a number
+of OCR errors.  The following summarizes a newer pape without OCR issues:
+
+```sh
+echo 'Please summarize the paper on RAG.' | 
+src/compare_and_contrast.py papers/NeurIPS-2020-retrieval*.pdf
+```
+
+<ol>
+  <li>
+The paper on RAG discusses the use of Retrieval-Augmented Generation (RAG) for question answering (QA). RAG directly minimizes the negative log-likelihood of answers and is compared to traditional extractive QA methods and Closed-Book QA approaches. RAG's retriever is initialized using DPR's retriever, and it achieves results comparable to the DPR QA system. RAG is able to generate answers without the need for specialized pre-training like "salient span masking." Additionally, RAG demonstrates high accuracy in classifying claims as true or false based on evidence it retrieves, achieving results within 2.7% of a model that uses gold evidence sentences. In analyzing RAG's performance, the overlap in article titles between the documents retrieved by RAG and the gold evidence in FEVER dataset is calculated.
+  </li>
+</ol>
 
 Results are likely to improve if we simplify the task as much as possible.  For example, it is better
 to summarize each paper one at a time like this:
@@ -97,7 +126,16 @@ Now the summary is closer to what was in the paper:
 </li>
 </ol>
 
-Unfortunately, the the summary ends with some inconsistent misinformation: author, venue, date.  The last sentence of the summary does not contribute much information, and perhaps some misinformation.  Section 5 would be better characterized as conclusions than contributions.
+Unfortunately,
+<ol>
+  <li>the the summary ends with some inconsistent
+    <i>misinformation</i>: author, venue, date.</li>
+  <li>In addition, the last sentence
+does not contribute much new information, though perhaps some
+misinformation.</li>
+  <li>The discussion of Section 5 would be better characterized as
+    <i>conclusions</i> than <i>contributions</i>.</li>
+</ol>
 
 
 In general, abstractive summarization is more ambitious than extractive summarization.
@@ -112,6 +150,9 @@ A word similarity measure based on the distributional pattern of words allows a 
 The summary above can be retrieved with <a href="http://34.204.188.58//cgi-bin/lookup_paper?id=ACL:C98-2122&fields=title,tldr">this</a>.
 The Semantic Scholar description of this paper can be found <a href="https://www.semanticscholar.org/paper/Automatic-Retrieval-and-Clustering-of-Similar-Words-Lin/11157109b8f3a098c5c3f801ba9acbffd2aa49b1">here</a>,
 and the ACL Anthology description of this paper can be found <a href="https://aclanthology.org/P98-2127/">here</a>.
+
+It may be useful to compare RAG summaries with older technologies such as spacy.
+
 
 <h2>Creating Your Own API</h2>
 

@@ -3,11 +3,16 @@
 # based on https://www.geeksforgeeks.org/text-summarization-in-nlp/
 # and https://www.geeksforgeeks.org/extract-text-from-pdf-file-using-python/
 
-import sys
+import sys,os
 import spacy
 import pytextrank
 
-nlp = spacy.load("en_core_web_lg")
+try:
+    nlp = spacy.load("en_core_web_lg")
+except Exception as e:
+    print('Exception: ' + str(e), file=sys.stderr)
+    print('please run this:\n\tpython3 -m spacy download en_core_web_lg', file=sys.stderr)
+
 nlp.add_pipe("textrank")
 
 from pypdf import PdfReader 
