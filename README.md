@@ -92,8 +92,8 @@ There are a couple of opportunities to improve the example above:
   <li>OCR errors: garbage in &rarr; garbage out</li>
 <li>KISS: keep it simple, stupid:
   <ol>
-    <li>It is safer to process one file at a time, and</li>
-    <li>decompose prompts into a series of simple subtasks</li>
+    <li>It is safer to process fewer files at a time, and</li>
+    <li>to decompose prompts into smaller subtasks (Chain of Thought Reasoning)</li>
   </ol>
 </li>
 </ol>
