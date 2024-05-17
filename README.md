@@ -98,57 +98,62 @@ There are a couple of opportunities to improve the example above:
 </ol>
 
 As we will see, older pdf files on the ACL Anthology introduce a number
-of OCR errors.  The following summarizes a more recent paper (without OCR issues):
+of OCR errors.  The table below shows three papers, two older papers with OCR issues
+as well as a newer paper without OCR issues.
+
+The RAG outputs in the table were created with:
 
 ```sh
+echo 'Please summarize the paper on word associations.' | 
+src/compare_and_contrast.py sample_files/J90-1003.pdf
+
+echo 'Please summarize the paper on clustering.' |
+src/compare_and_contrast.py sample_files/C98-2122.pdf
+
 echo 'Please summarize the paper on RAG.' | 
 src/compare_and_contrast.py papers/NeurIPS-2020-retrieval*.pdf
 ```
 
-<ol>
-  <li>
-
-  </li>
-</ol>
-
-
-
-Results are likely to improve if we simplify the task as much as possible.  For example, it is better
-to summarize each paper one at a time like this:
-
-```sh
-echo 'Please summarize the paper on clustering.' |
-src/compare_and_contrast.py sample_files/C98-2122.pdf
-```
-
-Now the summary is closer to what was in the paper:
-
-<ol>
-<li>
-  The paper discusses clustering similar words and evaluates clusters based on their ability to recover data items that are removed from the input corpus. It also indirectly evaluates collocations and their associated scores by their use in parse tree distributional clustering of English words. The paper was presented at ACL93 and authored by Gerda Ruge in 1992. The future work in clustering similar words is briefly mentioned in Section 4, while related work and the contributions of the paper are summarized in Section 5.
-</li>
-</ol>
-
-Unfortunately,
-<ol>
-  <li>the the summary ends with some inconsistent
-    <i>misinformation</i>: author, venue, date.</li>
-  <li>In addition, the last sentence
-does not contribute much new information, though perhaps some
-misinformation.</li>
-  <li>The discussion of Section 5 would be better characterized as
-    <i>conclusions</i> than <i>contributions</i>.</li>
-</ol>
-
-
 In general, abstractive summarization is more ambitious than extractive summarization.
-The tldr (too long; did not read) summary from Semantic Scholar is:
+The table below compares the RAG summaries with tldr summaries from Semantic Scholar.
+If one clinks on links in the first column, then
+one can see the paper in Semantic Scholar with tldr summaries.
+
+Note that those summaries are shorter than the RAG summaries,
+and less likely to suffer from inconsistencies and misinformation.
+The bold face in the table below calls out some misinformation
+introduced by RAG.
+
+In addition to misinformation, the discussion of Section 5 in the table
+below does not contribute much new information.
+Section 5 of the paper in question would be better charcterized as 
+<i>conclusions</i> than <i>contributions</i>, but it would be even better
+to summarize the conclusions than to say that the paper ends with conclusions.
+
+
 
 <table>
-  <tr><th>Id</td> <th>OCR Challenges</th><th> tldr </th> <th> RAG Summary</th></tr>
+  <tr><th>Id</td> <th align="center">OCR</th><th> tldr </th> <th> RAG Summary</th></tr>
   
+
+<tr><td></td>
+<td align="center"> &check; </td>
+
+<td> The proposed measure, the association ratio, estimates word association norms directly from computer readable corpora, making it possible to estimate norms for tens of thousands of words.</td>
+
+<td> The paper discusses the importance of word association norms in psycholinguistic research, particularly in lexical retrieval. It introduces the concept of the association ratio as a measure to estimate word association norms directly from computer-readable corpora. The paper extends the psycholinguistic notion of word association norms towards an information theoretic definition of mutual information, providing statistical calculation that can be applied effectively. The standard method of obtaining word association norms through testing subjects is deemed costly and unreliable compared to the proposed measure utilizing computer data.</td>
+</tr>
+
+<tr><td><a href="https://www.semanticscholar.org/paper/11157109b8f3a098c5c3f801ba9acbffd2aa49b1">ACL:C98-2122</a></td>
+<td align="center"> &check; </td> 
+
+<td>A word similarity measure based on the distributional pattern of words allows a thesaurus to be constructed using a parsed corpus and shows that the thesaurus is significantly closer to WordNet than Roget Thesaurus is.</td>
+
+<td>The paper discusses clustering similar words and evaluates clusters based on their ability to recover data items that are removed from the input corpus. It also indirectly evaluates collocations and their associated scores by their use in parse tree distributional clustering of English words. The paper was presented at <b>ACL93</b> and authored by <b>Gerda Ruge</b> in </b>1992</b>. The future work in clustering similar words is briefly mentioned in Section 4, while related work and the contributions of the paper are summarized in Section 5.</td>
+</tr>
+
 <tr><td> <a href="https://www.semanticscholar.org/paper/58ed1fbaabe027345f7bb3a6312d41c5aac63e22">ArXiv:2005.11401</a></td>
- <td> &#x2717; </td> 
+ <td align="center"> &#x2717; </td> 
 
 <td>A general-purpose fine-tuning recipe for retrieval-augmented
 generation (RAG) -- models which combine pre-trained parametric and
@@ -171,21 +176,6 @@ the documents retrieved by RAG and the gold evidence in FEVER dataset
 is calculated.</td>
 </tr>
 
-<tr><td><a href="https://www.semanticscholar.org/paper/11157109b8f3a098c5c3f801ba9acbffd2aa49b1">ACL:C98-2122</a></td>
-<td> &check; </td> 
-
-<td>A word similarity measure based on the distributional pattern of words allows a thesaurus to be constructed using a parsed corpus and shows that the thesaurus is significantly closer to WordNet than Roget Thesaurus is.</td>
-
-<td>The paper discusses clustering similar words and evaluates clusters based on their ability to recover data items that are removed from the input corpus. It also indirectly evaluates collocations and their associated scores by their use in parse tree distributional clustering of English words. The paper was presented at <b>ACL93</b> and authored by <b>Gerda Ruge</b> in </b>1992</b>. The future work in clustering similar words is briefly mentioned in Section 4, while related work and the contributions of the paper are summarized in Section 5.</td>
-</tr>
-
-<tr><td></td>
-<td> &check; </td>
-
-<td> The proposed measure, the association ratio, estimates word association norms directly from computer readable corpora, making it possible to estimate norms for tens of thousands of words.</td>
-
-<td> The paper discusses the importance of word association norms in psycholinguistic research, particularly in lexical retrieval. It introduces the concept of the association ratio as a measure to estimate word association norms directly from computer-readable corpora. The paper extends the psycholinguistic notion of word association norms towards an information theoretic definition of mutual information, providing statistical calculation that can be applied effectively. The standard method of obtaining word association norms through testing subjects is deemed costly and unreliable compared to the proposed measure utilizing computer data.</td>
-</tr>
 
 <table>
 
