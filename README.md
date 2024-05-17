@@ -17,21 +17,21 @@ Some of the features below require secrets from different organizations
   <tr>
     <td>OpenAI</td>
     <td>OPENAI_API_KEY</td>
-    <td>paid</td>
+    <td>&#x2717;</td>
     <td><a href="https://platform.openai.com/api-keys">here</a></td>
   </tr>
 
   <tr>
     <td>Semantic Scholar</td>
     <td>S2_API_KEY</td>
-    <td>free</td>
+    <td>&check;</td>
     <td><a href="https://www.semanticscholar.org/product/api#api-key">here</a></td>
   </tr>
 
   <tr>
     <td>VecML</td>
     <td>VECML_API_KEY</td>
-    <td>free</td>
+    <td>&check;</td>
     <td><a href="www.vecml.com">here</a>; click on login, and then click on API Key.
   </tr>
 </table>
