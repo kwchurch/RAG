@@ -9,7 +9,7 @@ import cgi, cgitb
 
 # secrets that we do not want to share
 fn = os.environ["HOME"] + '/.secrets.json'
-assert not os.environ['VECML_API_KEY'] is None or os.path.exists(fn), 'VECML_API_KEY is required; see README for https://github.com/kwchurch/RAG'
+assert 'VECML_API_KEY' in os.environ or os.path.exists(fn), 'VECML_API_KEY is required; see README for https://github.com/kwchurch/RAG'
 
 secrets = {}
 if os.path.exists(fn):

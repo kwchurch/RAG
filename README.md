@@ -81,7 +81,7 @@ Then you should be able run these examples on the local host.
 <ol>
   <li>Test server.  You should see "hello world" if the server is running when you click <a href="http://0.0.0.0:8000/cgi-bin/hello.py">here</a>.</li>
   <li>Click <a href="http://0.0.0.0:8000/cgi-bin/compare_and_contrast?ids=ACL:P89-1010,ACL:P98-2127">here</a> and wait about 10 seconds.  Then you will see a json object that compares and contrasts two ACL papers.</li>
-  <li><a href="http://0.0.0.0:8000/cgi-bin/compare_and_contrast_texts?text1=I love you.&text2=I hate you.">example</a></li>
+  <li>Like above, but takes texts as files (as opposed to files): Click <a href="http://0.0.0.0:8000/cgi-bin/compare_and_contrast_texts?text1=I love you.&text2=I hate you.">example</a> and wait about 10 seconds</li>
 </ol>
 
 
