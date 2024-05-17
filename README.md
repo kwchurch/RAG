@@ -147,7 +147,8 @@ The tldr (too long; did not read) summary from Semantic Scholar is:
 <table>
   <tr><th>Id</td> <th>OCR Challenges</th><th> tldr </th> <th> RAG Summary</th></tr>
   
-<tr><td> ArXiv:2005.11401 </td> <td> no </td> 
+<tr><td> <a href="https://www.semanticscholar.org/paper/58ed1fbaabe027345f7bb3a6312d41c5aac63e22">ArXiv:2005.11401</a></td>
+ <td> &#x2717; </td> 
 
 <td>A general-purpose fine-tuning recipe for retrieval-augmented
 generation (RAG) -- models which combine pre-trained parametric and
@@ -158,24 +159,34 @@ state-of-the-art parametric-only seq2seq baseline.</td>
 <td>The paper on RAG discusses the use of Retrieval-Augmented
 Generation (RAG) for question answering (QA). RAG directly minimizes
 the negative log-likelihood of answers and is compared to traditional
-extractive QA methods and Closed-Book QA approaches. RAG\'s retriever
-is initialized using DPR\'s retriever, and it achieves results
+extractive QA methods and Closed-Book QA approaches. RAG's retriever
+is initialized using DPR's retriever, and it achieves results
 comparable to the DPR QA system. RAG is able to generate answers
-without the need for specialized pre-training like \"salient span
-masking.\" Additionally, RAG demonstrates high accuracy in classifying
+without the need for specialized pre-training like "salient span
+masking." Additionally, RAG demonstrates high accuracy in classifying
 claims as true or false based on evidence it retrieves, achieving
-results within 2.7\% of a model that uses gold evidence sentences. In
-analyzing RAG\'s performance, the overlap in article titles between
+results within 2.7% of a model that uses gold evidence sentences. In
+analyzing RAG's performance, the overlap in article titles between
 the documents retrieved by RAG and the gold evidence in FEVER dataset
 is calculated.</td>
 </tr>
 
-<tr><td>C98-2122.pdf</td>  <td> yes </td> 
+<tr><td><a href="https://www.semanticscholar.org/paper/11157109b8f3a098c5c3f801ba9acbffd2aa49b1">ACL:C98-2122</a></td>
+<td> &check; </td> 
 
 <td>A word similarity measure based on the distributional pattern of words allows a thesaurus to be constructed using a parsed corpus and shows that the thesaurus is significantly closer to WordNet than Roget Thesaurus is.</td>
 
-<td>The paper discusses clustering similar words and evaluates clusters based on their ability to recover data items that are removed from the input corpus. It also indirectly evaluates collocations and their associated scores by their use in parse tree distributional clustering of English words. The paper was presented at ACL93 and authored by Gerda Ruge in 1992. The future work in clustering similar words is briefly mentioned in Section 4, while related work and the contributions of the paper are summarized in Section 5.</td>
+<td>The paper discusses clustering similar words and evaluates clusters based on their ability to recover data items that are removed from the input corpus. It also indirectly evaluates collocations and their associated scores by their use in parse tree distributional clustering of English words. The paper was presented at <b>ACL93</b> and authored by <b>Gerda Ruge</b> in </b>1992</b>. The future work in clustering similar words is briefly mentioned in Section 4, while related work and the contributions of the paper are summarized in Section 5.</td>
 </tr>
+
+<tr><td></td>
+<td> &check; </td>
+
+<td> The proposed measure, the association ratio, estimates word association norms directly from computer readable corpora, making it possible to estimate norms for tens of thousands of words.</td>
+
+<td> The paper discusses the importance of word association norms in psycholinguistic research, particularly in lexical retrieval. It introduces the concept of the association ratio as a measure to estimate word association norms directly from computer-readable corpora. The paper extends the psycholinguistic notion of word association norms towards an information theoretic definition of mutual information, providing statistical calculation that can be applied effectively. The standard method of obtaining word association norms through testing subjects is deemed costly and unreliable compared to the proposed measure utilizing computer data.</td>
+</tr>
+
 <table>
 
 
