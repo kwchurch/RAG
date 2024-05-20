@@ -1,0 +1,2 @@
+system|You are a helpful assistant.
+user|Please summarize the paper on psycholinguistics.

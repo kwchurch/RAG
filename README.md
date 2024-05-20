@@ -57,6 +57,21 @@ then you can run this in a shell window.  It will return an error if the key is 
 }'
 ```
 
+Here is a simple example of a chat with OpenAI
+
+```sh
+cd src/OpenAI
+for f in sample_chats/*.txt
+do
+echo working on $f
+cat $f
+echo ""
+echo Response from OpenAI:
+./chat.py < $f
+echo ""	    
+done
+```
+
 <h3>VecML</h3>
 
 If you have a key from VecML and set it to the environment variable VECML_API_KEY,

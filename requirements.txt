@@ -2,6 +2,7 @@ wget
 requests
 numpy
 vecml
+openai
 spacy
 pypdf
 pytextrank
