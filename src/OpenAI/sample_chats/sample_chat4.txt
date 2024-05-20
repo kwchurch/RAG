@@ -1,2 +1,2 @@
 system|You are a helpful assistant.
-user|Who wrote the paper on psycholinguistics.
+user|Please summarize the paper on psycholinguistics.

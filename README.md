@@ -119,14 +119,15 @@ as well as a newer paper without OCR issues.
 The RAG outputs in the table were created with:
 
 ```sh
+cd src/VecML
 echo 'Please summarize the paper on word associations.' | 
-src/RAG.py sample_files/J90-1003.pdf
+./RAG.py sample_files/J90-1003.pdf
 
 echo 'Please summarize the paper on clustering.' |
-src/RAG.py sample_files/C98-2122.pdf
+./RAG.py sample_files/C98-2122.pdf
 
 echo 'Please summarize the paper on RAG.' | 
-src/RAG.py papers/NeurIPS-2020-retrieval*.pdf
+./RAG.py papers/NeurIPS-2020-retrieval*.pdf
 ```
 
 In general, abstractive summarization is more ambitious than extractive summarization.
