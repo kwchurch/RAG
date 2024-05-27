@@ -57,7 +57,9 @@ then you can run this in a shell window.  It will return an error if the key is 
 }'
 ```
 
-Here is a simple example of a chat with OpenAI
+Here is a simple example of a chat with OpenAI.  This example refers
+to several files in this repository under src/OpenAI: <a href="src/OpenAI/chat.py">chat.py</a> and
+<a href-"src/OpenAI/sample_chats/">sample_chats/*.txt</a>.
 
 ```sh
 cd src/OpenAI
