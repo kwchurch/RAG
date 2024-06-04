@@ -59,6 +59,18 @@ then you can run this in a shell window.  It will return an error if the key is 
 
 Here is a simple example of a chat with OpenAI.  This example refers
 to several files in this repository under src/OpenAI: <a href="src/OpenAI/chat.py">chat.py</a> and
+<a href="src/OpenAI/sample_chats/">sample_chats/sample_chat1.txt</a>.
+
+```sh
+cd src/OpenAI
+./chat.py < sample_chats/sample_chat1.txt
+```
+
+When we ran the example above, we received the following output:
+<br>
+<i>The World Series in 2020 was played at Globe Life Field in Arlington, Texas.</i>
+
+Here are some more examples.  The inputs are:
 <a href="src/OpenAI/sample_chats/">sample_chats/*.txt</a>.
 
 ```sh
@@ -73,6 +85,8 @@ echo Response from OpenAI:
 echo ""	    
 done
 ```
+
+See the paper for more discussion of these examples.
 
 <h3>VecML</h3>
 
