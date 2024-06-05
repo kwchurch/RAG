@@ -9,6 +9,7 @@ from llama_index.core.schema import TextNode
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 logging.getLogger().addHandler(logging.StreamHandler(stream=sys.stdout))
 
+assert "OPENAI_API_KEY" in os.environ, "The environment variable, OPENAI_API_KEY, must be assigned to a valid api key for OpenAI"
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
 def split_large_chunks(chunks):
@@ -39,11 +40,9 @@ def read_pdf_files(files):
                 print("Error reading page " + str(p + 1) + " in file " + file, file=sys.stderr)
 
         # Chunk text in pages and create nodes to index
-        fst_chunks = (' '.join(txt)).split(". \n")
-        final_chunks = split_large_chunks(fst_chunks)
-        for node_number,chunk in enumerate(final_chunks):
-            node_id = file + "_" + str(node_number)
-            node = TextNode(text=chunk, id_=node_id)
+        chunks = (' '.join(txt)).split(". \n")
+        for node_number,chunk in enumerate(split_large_chunks(chunks)):
+            node = TextNode(text=chunk, id_=file + "_" + str(node_number))
             all_nodes.append(node)
         print("Done with  [" + file + "]", file=sys.stderr)
     return VectorStoreIndex(all_nodes)
