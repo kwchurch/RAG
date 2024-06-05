@@ -101,9 +101,6 @@ src/OpenAI/RAG.py sample_files/World_Series/*pdf
 <h3>VecML</h3>
 
 
-```sh
-
-
 If you have a key from VecML and set it to the environment variable VECML_API_KEY,
 you can do this:
 
