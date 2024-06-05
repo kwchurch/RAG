@@ -6,3 +6,4 @@ openai
 spacy
 pypdf
 pytextrank
+llama_index

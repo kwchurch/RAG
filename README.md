@@ -61,9 +61,9 @@ Here is a simple example of a chat with OpenAI.  This example refers
 to several files in this repository under src/OpenAI: <a href="src/OpenAI/chat.py">chat.py</a> and
 <a href="src/OpenAI/sample_chats/sample_chat1.txt">sample_chats/sample_chat1.txt</a>.
 
+
 ```sh
-cd src/OpenAI
-./chat.py < sample_chats/sample_chat1.txt
+src/OpenAI/chat.py < src/OpenAI/sample_chats/sample_chat1.txt
 ```
 
 When we ran the example above, we received the following output:
@@ -88,7 +88,21 @@ done
 
 See the paper for more discussion of these examples.
 
+<h4>RAG</h4>
+
+RAG allows one to upload files and ask questions about them:
+
+```sh
+echo 'Who won the world series in 2023?' | 
+src/OpenAI/RAG.py sample_files/World_Series/*pdf
+```
+
+
 <h3>VecML</h3>
+
+
+```sh
+
 
 If you have a key from VecML and set it to the environment variable VECML_API_KEY,
 you can do this:
@@ -103,12 +117,12 @@ src/RAG.py sample_files/*pdf </tmp/x
 
 <p>The code above produces the following outputs (one output for each of the four input prompts):</p>
 						
-<ol>
+<i><ol>
 <li>The paper on psycholinguistics discusses the importance of word association norms in psycholinguistic research, particularly in the area of lexical retrieval. It mentions that subjects respond quicker to words that are highly associated with each other. While noun-noun word associations like "doctor/nurse" are extensively studied, less attention is given to associations among verbs, function words, adjectives, and other non-nouns. The paper concludes by linking the psycholinguistic notion of word association norms to the information-theoretic concept of mutual information, providing a more precise understanding of word associations.</li>
 <li>The paper discusses a triangulation approach for clustering concordance lines into word senses based on usage rather than intuitive meanings. It highlights the superficiality of defining a word measure for clustering words without explicit preprocessing tools such as Church's parts program or Hindle's parser. The paper briefly mentions future work on clustering similar words and reviews related work while summarizing its contributions.</li>
 <li>The similarities between the two papers include a focus on analyzing language data, using distributional patterns of words, evaluating similarity measures for creating a thesaurus, and discussing the importance of smoothing methods in language processing tasks.</li>
 <li>The differences between the two thesaurus entries can be measured based on the cosine coefficient of their feature vectors. In this case, the differences are represented in the relationships between the words listed in each entry. For example, in the given entries, "brief (noun)" is associated with words like "differ," "scream," "compete," and "add," while "inform" and "notify" are related to each other in the second entry. These associations indicate the semantic relationships and differences between the words in each entry.</li>
-</ol>
+</ol></i>
 
 <h4>RAG is not magic</h4>
 
