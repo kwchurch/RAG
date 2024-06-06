@@ -97,6 +97,23 @@ echo 'Who won the world series in 2023?' |
 src/OpenAI/RAG.py sample_files/World_Series/*pdf
 ```
 
+The example above outputs the response: <i>The Texas Rangers won the World Series in 2023.</i>
+
+```sh
+echo 'Please summarize the paper on psycholinguistics.' | 
+src/OpenAI/RAG.py sample_files/papers/*pdf
+```
+
+The example above outputs the response:
+
+<i>The paper on psycholinguistics discusses the extension of the
+concept of word association norms towards the information theoretic
+definition of mutual information. It provides a statistical
+calculation applicable to various areas such as language models for
+speech recognition and optical character recognition, disambiguation
+cues for parsing ambiguous syntactic structures, text retrieval from
+large databases, and productivity enhancement for computational
+linguists and lexicographers.</i>
 
 <h3>VecML</h3>
 
@@ -109,7 +126,7 @@ echo 'Please summarize the paper on psycholinguistics.' >/tmp/x
 echo 'Please summarize the paper on clustering.' >>/tmp/x
 echo 'What are the similarities between the two papers?' >>/tmp/x
 echo 'What are the differences?' >>/tmp/x
-src/RAG.py sample_files/*pdf </tmp/x
+src/VecML/RAG.py sample_files/papers/*pdf </tmp/x
 ```
 
 <p>The code above produces the following outputs (one output for each of the four input prompts):</p>
