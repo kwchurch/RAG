@@ -115,6 +115,9 @@ cues for parsing ambiguous syntactic structures, text retrieval from
 large databases, and productivity enhancement for computational
 linguists and lexicographers.</i>
 
+There are three versions of RAG.py in this github, illustrating three
+slightly differently solutions.
+
 <h3>VecML</h3>
 
 
@@ -284,6 +287,35 @@ a state-of-the-art parametric-only seq2seq baseline.
 </li>
 </ol>
 
+<h3>Transformers</h3>
+
+We provide yet another solution to RAG based on the transformers package.  This version takes one or more csv files on the command line
+and uploads them to the bot before responding to prompts.
+For simple questions, it is not necessary to provide a csv file:
+
+```sh
+echo 'What is the capital of Spain?' |
+src/transformers/RAG.py
+```
+
+The following example illustrates the timeliness issue.  In this case, the bot returns a dated answer that was correct
+when the bot was trained, but is no longer correct.
+
+```sh
+echo 'Who is President of the United States?' | 
+src/transformers/RAG.py
+```
+
+If we upload a csv file with more recent information, then we obtain
+the currectly correct answer (as of 2024).
+
+```sh
+echo 'Who is President of the United States?' | 
+src/transformers/RAG.py sample_files/csv_datasets/administration.csv 
+```
+
+This solution is provided for pedagogical purposes.  The <a href="sample_files/csv_datasets/administration.csv">csv file</a> is a short (toy) example.  Similarly,
+<a href="src/transformers/RAG.py">RAG.py</a> was written to be easy to read and easy to run (but is not fast and does not use GPUs).
 
 <h2>Creating Your Own API</h2>
 
