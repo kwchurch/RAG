@@ -38,6 +38,13 @@ Some of the features below require secrets from different organizations
   </tr>
 
   <tr>
+    <td>LangChain</td>
+    <td>LANGCHAIN_API_KEY</td>
+    <td align="center">&check;</td>
+    <td><a href="https://smith.langchain.com/">here</a>; click on settings, and then click on API keys and then create API key (far right)</td>
+   </tr>
+
+  <tr>
     <td>VecML</td>
     <td>VECML_API_KEY</td>
     <td align="center">&check;</td>
@@ -108,6 +115,27 @@ src/OpenAI/RAG.py sample_files/World_Series/*pdf
 ```
 
 The example above outputs the response: <i>The Texas Rangers won the World Series in 2023.</i>
+
+
+There are a number of versions of RAG.py and chat.py that use different methods to do more or less the same thing.
+For example:
+
+```sh
+ls src/*/RAG.py src/*/chat.py
+```
+
+The difference between RAG.py and chat.py is that RAG.py uploads files from the command line, and chat.py does not upload files.
+
+This example is similar to the one above except that it uses VecML instead of OpenAI.
+
+```sh
+echo 'Who won the world series in 2023?' | 
+src/VecML/RAG.py sample_files/World_Series/*pdf
+```
+
+The following example shows how to summarize academic papers.  Since there
+are two papers in this directory, the prompt asks to summarize one of them (and not the other):
+
 
 ```sh
 echo 'Please summarize the paper on psycholinguistics.' | 
