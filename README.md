@@ -1,13 +1,23 @@
 # A Gentle Introduction to RAG
 
-<h2>Installation</h2>
+<h2>Table of Contents</h2>
+
+<ol>
+<li><a href="#Getting_Started">Getting Started</a></li>
+<li><a href="#chat">Chat</a></li>
+<li><a href="#RAG">RAG</a> (uploading files just in time)</li>
+<li><a href="#API">API</a> (Creating an web server on your local host)</li>
+</ol>
+
+
+<h2 id="Getting_Started">Installation</h2>
 
 ```sh
 pip install -r requirements.txt
 ```
 
 
-<h2>Obtaining Secrets</h2>
+<h2 id="secrets">Obtaining Secrets</h2>
 
 Some of the features below require secrets from different organizations
 
@@ -39,7 +49,7 @@ It is not necessary to obtain keys, but it is recommended that you
 obtain (at least) the free keys, and set the environment variables
 appropriately.
 
-<h2>Simple Usage</h2>
+<h2 id="chat">Simple Chat Usage</h2>
 
 <h3>OpenAI</h3>
 
@@ -88,7 +98,7 @@ done
 
 See the paper for more discussion of these examples.
 
-<h4>RAG</h4>
+<h4 id="RAG">RAG</h4>
 
 RAG allows one to upload files and ask questions about them:
 
@@ -244,10 +254,10 @@ is calculated.</td>
 It may be useful to compare the summaries above with spacy:
 
 ```sh
-src/summarize_with_spacy.py sample_files/J*pdf sample_files/C*pdf papers/Neur*pdf
+src/spacy/summarize_with_spacy.py sample_files/papers/*pdf papers/Neur*pdf
 ```
 
-The command above produces the following output.  Note that OCR and equations create interesting challenges:
+The command above produces the following output.  Note that OCR and equations introduce interesting challenges:
 
 <ol>
 <li>The 
@@ -317,7 +327,7 @@ src/transformers/RAG.py sample_files/csv_datasets/administration.csv
 This solution is provided for pedagogical purposes.  The <a href="sample_files/csv_datasets/administration.csv">csv file</a> is a short (toy) example.  Similarly,
 <a href="src/transformers/RAG.py">RAG.py</a> was written to be easy to read and easy to run (but is not fast and does not use GPUs).
 
-<h2>Creating Your Own API</h2>
+<h2 id="API">Creating Your Own API</h2>
 
 To start your a web server on your local machine, run this on a shell window.
 
