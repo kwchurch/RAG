@@ -21,8 +21,10 @@ from langchain_community.document_loaders import DirectoryLoader,JSONLoader,Text
 
 # 1. Load, chunk and index the contents of the blog to create a retriever.
 
+# I would like to load a list of docs, sys.argv[1:], but not sure how to do that
 loader = PDFMinerLoader(sys.argv[1])
 
+# There is support for loading files in a directory, but...
 # if sys.argv[1].startswith('http'):
 #     loader = WebBaseLoader(
 #         web_paths=sys.argv[1:],
