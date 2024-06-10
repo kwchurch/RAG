@@ -34,21 +34,21 @@ Some of the features below require secrets from different organizations
     <td>Semantic Scholar</td>
     <td>S2_API_KEY</td>
     <td align="center">&check;</td>
-    <td><a href="https://www.semanticscholar.org/product/api#api-key">here</a></td>
+    <td><a href="https://www.semanticscholar.org/product/api#api-key">here</a>; click on Request Authentication</td>
   </tr>
 
   <tr>
     <td>LangChain</td>
     <td>LANGCHAIN_API_KEY</td>
     <td align="center">&check;</td>
-    <td><a href="https://smith.langchain.com/">here</a>; click on settings, and then click on API keys and then create API key (far right)</td>
+    <td><a href="https://www.langchain.com/">here</a>; click on settings, and then click on API keys and then create API key (far right)</td>
    </tr>
 
   <tr>
     <td>VecML</td>
     <td>VECML_API_KEY</td>
     <td align="center">&check;</td>
-    <td><a href="www.vecml.com">here</a>; click on login, and then click on API Key.
+    <td><a href="https://www.vecml.com">here</a>; click on login, and then click on API Key.
   </tr>
 </table>
 
