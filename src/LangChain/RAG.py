@@ -19,30 +19,14 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from langchain_community.document_loaders import DirectoryLoader,JSONLoader,TextLoader,CSVLoader,PDFMinerLoader,WebBaseLoader
 
-# 1. Load, chunk and index the contents of the blog to create a retriever.
-
-# I would like to load a list of docs, sys.argv[1:], but not sure how to do that
-loader = PDFMinerLoader(sys.argv[1])
-
-# There is support for loading files in a directory, but...
-# if sys.argv[1].startswith('http'):
-#     loader = WebBaseLoader(
-#         web_paths=sys.argv[1:],
-#         bs_kwargs=dict(
-#             parse_only=bs4.SoupStrainer(
-#                 class_=("post-content", "post-title", "post-header")
-#             )
-#         ),
-#     )
-# else:
-#     loader = DirectoryLoader(sys.argv[1],
-#                              { ".json": JSONLoader,
-#                                ".txt": TextLoader,
-#                                ".csv": CSVLoader,
-#                                ".pdf": PDFMinerLoader,
-#                               })
-
-docs = loader.load()
+# 1. Load, chunk and index the files specified in sys.argv[1:] to create a retriever.
+docs = []
+for pdf_path in sys.argv[1:]:
+  try:
+    loader = PDFMinerLoader(pdf_path)
+    docs.extend(loader.load())
+  except Exception as e:
+    print(f'Failed to load {pdf_path} with Exception: {e}')
 
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
 splits = text_splitter.split_documents(docs)
