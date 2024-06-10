@@ -41,7 +41,7 @@ Some of the features below require secrets from different organizations
     <td>LangChain</td>
     <td>LANGCHAIN_API_KEY</td>
     <td align="center">&check;</td>
-    <td><a href="https://www.langchain.com/">here</a>; click on settings, and then click on API keys and then create API key (far right)</td>
+    <td><a href="https://www.langchain.com/">here</a>; click on sign up, and then on settings, and then click on API keys and then create API key (far right)</td>
    </tr>
 
   <tr>
