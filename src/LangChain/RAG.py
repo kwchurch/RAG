@@ -14,6 +14,7 @@ from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_chroma import Chroma
 from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.messages import HumanMessage
 from langchain_openai import OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
@@ -55,6 +56,8 @@ prompt = ChatPromptTemplate.from_messages(
 question_answer_chain = create_stuff_documents_chain(llm, prompt)
 rag_chain = create_retrieval_chain(retriever, question_answer_chain)
 
+chat_history = [] 
 for line in sys.stdin:
-    response = rag_chain.invoke({"input": line})
+    response = rag_chain.invoke({"input": line, "chat_history": chat_history})
+    chat_history.extend([HumanMessage(content=line), response["answer"]])
     print(response["answer"])
