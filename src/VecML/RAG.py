@@ -5,6 +5,11 @@ import sys,os,time
 
 chatName = sys.argv[1]
 
+try:
+    vecml.delete_data(chatName)
+except:
+    "do nothing"
+
 vecml.init(os.environ['VECML_API_KEY'], "us-west")
 vecml.create_chat(chatName, sys.argv[1:])
 
