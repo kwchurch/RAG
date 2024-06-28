@@ -1,5 +1,6 @@
 beautifulsoup4
 bs4
+datasets
 faiss-cpu
 langchain
 langchain_core
@@ -14,6 +15,7 @@ pypdf
 pytextrank
 requests
 spacy
+torch
 transformers
 vecml
 wget
