@@ -355,6 +355,20 @@ src/transformers/RAG.py sample_files/csv_datasets/administration.csv
 This solution is provided for pedagogical purposes.  The <a href="sample_files/csv_datasets/administration.csv">csv file</a> is a short (toy) example.  Similarly,
 <a href="src/transformers/RAG.py">RAG.py</a> was written to be easy to read and easy to run (but is not fast and does not use GPUs).
 
+
+<h3>LangChain</h3>
+
+We provide a further RAG implementation with the LangChain library. Similar to VecML, PDFs are sent to for the retrieval index and then multiple text queries may be chained together, with both the document retrieval and previous chat history adding to the LLM context. 
+
+The following command submits two papers and asks four successive questions about them to a ChatGPT-4 RAG system:
+```sh
+echo 'Please summarize the paper on psycholinguistics.' >/tmp/x
+echo 'Please summarize the paper on clustering.' >>/tmp/x
+echo 'What are the similarities between the two papers?' >>/tmp/x
+echo 'What are the differences between the two papers?' >>/tmp/x
+python src/LangChain/RAG.py sample_files/papers/J90-1003.pdf sample_files/papers/C98-2122.pdf </tmp/x
+```
+
 <h2 id="API">Creating Your Own API</h2>
 
 To start your a web server on your local machine, run this on a shell window.
