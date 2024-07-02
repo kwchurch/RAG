@@ -1,4 +1,5 @@
-# A Gentle Introduction to RAG<br> (<b>Windows version, under development</b>)
+# A Gentle Introduction to RAG
+<br> Note: This is the Windows version. Click <a href="./README.md">here</a> for Linux/macOS version.
 
 <h2>Table of Contents</h2>
 
