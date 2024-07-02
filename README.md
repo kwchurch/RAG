@@ -1,6 +1,6 @@
 # A Gentle Introduction to RAG 
-### (Linux/macOS version)
-### Click <a href="./README-Windows.md">here</a> for Windows version
+<br> (Linux/macOS version)
+<br> Click <a href="./README-Windows.md">here</a> for Windows version
 
 <h2>Table of Contents</h2>
 
