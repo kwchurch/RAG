@@ -78,9 +78,7 @@ That will make all the keys in the file available as environment varibles.
 
 
 <!-- If you have an OpenAI key and set it to the environment variable OPENAI_API_KEY,
-then you can run this in a shell window.  It will return an error if the key is not valid. [Note that the caret signs (`^`) ??? indicate continuations of the command on the next line. They will be removed before command execution.]
-
-????????? Not working yet
+then you can run this in a shell window.  It will return an error if the key is not valid. [Note that the caret signs (`^`) indicate continuations of the command on the next line. They will be removed before command execution.]
 
 ```sh
  curl -H "Content-Type: application/json" -H "Authorization: Bearer %OPENAI_API_KEY%" -d '{ "model": "gpt-3.5-turbo", "messages": [{"role": "user", "content": "Say this is a test!"}], "temperature": 0.7 }' https://api.openai.com/v1/chat/completions 
@@ -362,13 +360,13 @@ echo 'What is the capital of Spain?' | python src/transformers/RAG.py
 ```
 
 
-```
+<!--
 ??? I had to add `trust_remote_code=True at about line 286 in the load_dataset call in 
 ...\lib\site-packages\transformers\models\rag\retrieval_rag.py
 and
 set KMP_DUPLICATE_LIB_OK=TRUE  
 to get this to work. ???
-```
+-->
 
 
 The following example illustrates the timeliness issue.  In this case, the bot returns a dated answer that was correct
@@ -386,7 +384,7 @@ echo 'Who is President of the United States?' | python src/transformers/RAG.py s
 ```
 
 ```sh
-    ??? Not really. This does not work on Windows. Why does it work on macos?
+<!-- ??? Not really. This does not work on Windows. Why does it work on macos? -->
 
 echo 'Who is President of the United States?' | python src/transformers/RAG.py sample_files/csv_datasets/administration.csv
 sample_files/csv_datasets/administration.csv
