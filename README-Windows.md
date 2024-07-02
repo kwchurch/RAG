@@ -383,8 +383,7 @@ the currectly correct answer (as of 2024).
 echo 'Who is President of the United States?' | python src/transformers/RAG.py sample_files/csv_datasets/administration.csv 
 ```
 
-```sh
-<!-- ??? Not really. This does not work on Windows. Why does it work on macos? -->
+<!-- ??? Not really. This does not work on Windows. Why does it work on macos?
 
 echo 'Who is President of the United States?' | python src/transformers/RAG.py sample_files/csv_datasets/administration.csv
 sample_files/csv_datasets/administration.csv
@@ -399,8 +398,8 @@ Traceback (most recent call last):
   File "C:\ProgramData\Anaconda3\envs\ETrag\lib\site-packages\datasets\load.py", line 256, in get_dataset_builder_class
     raise ValueError("dataset_name should be specified but got None")
 ValueError: dataset_name should be specified but got None
-```
-
+ -->
+ 
 This solution is provided for pedagogical purposes.  The <a href="sample_files/csv_datasets/administration.csv">csv file</a> is a short (toy) example.  Similarly,
 <a href="src/transformers/RAG.py">RAG.py</a> was written to be easy to read and easy to run (but is not fast and does not use GPUs).
 
