@@ -410,7 +410,7 @@ you can get ids from a query string with paper_search
 
 # Citation
 
-Please cite the <a href="https://www.cambridge.org/core/journals/natural-language-engineering/article/emerging-trends-a-gentle-introduction-to-rag/4FF461F4066A0C16135F2D2849E3356A#article"RAG tutorial</a> as:
+Please cite the <a href="https://www.cambridge.org/core/journals/natural-language-engineering/article/emerging-trends-a-gentle-introduction-to-rag/4FF461F4066A0C16135F2D2849E3356A#article">RAG tutorial</a> as:
 
 ```bibtex
 @article{Church_Sun_Yue_Vickers_Saba_Chandrasekar_2024, 
