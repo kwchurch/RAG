@@ -406,3 +406,20 @@ you can get ids from a query string with paper_search
 </li>
   <li><b>RAG</b> (on texts): Like above, but takes texts as inputs (as opposed to files): Click <a href="http://0.0.0.0:8000/cgi-bin/compare_and_contrast_texts?text1=I love you.&text2=I hate you.">example</a> and wait about 10 seconds</li>
 </ol>
+
+
+# Citation
+
+Please cite the <a href="https://www.cambridge.org/core/journals/natural-language-engineering/article/emerging-trends-a-gentle-introduction-to-rag/4FF461F4066A0C16135F2D2849E3356A#article"RAG tutorial</a> as:
+
+```bibtex
+@article{Church_Sun_Yue_Vickers_Saba_Chandrasekar_2024, 
+title={Emerging trends: a gentle introduction to {RAG}}, 
+volume={30}, DOI={10.1017/S1351324924000044}, 
+number={4}, 
+journal={Natural Language Engineering}, 
+author={Church, Kenneth Ward and Sun, Jiameng and Yue, Richard and Vickers, Peter and Saba, Walid and Chandrasekar, Raman},
+year={2024},
+pages={870–881}
+} 
+```
